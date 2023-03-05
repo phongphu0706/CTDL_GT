@@ -1,0 +1,25 @@
+//Cho mảng 1 chiều các số thực. Viết hàm đếm số lượng giá trị dương trong mảng bằng phương pháp đệ quy
+
+#include <iostream>
+using namespace std;
+
+int countPositiveValues(float arr[], int start, int end) {
+    if (start == end) { // Trường hợp cơ bản, mảng chỉ có 1 phần tử
+        if (arr[start] > 0) {
+            return 1; // Nếu phần tử duy nhất là số dương thì trả về 1
+        } else {
+            return 0; // Ngược lại trả về 0
+        }
+    } else { // Trường hợp đệ quy
+        int mid = (start + end) / 2; // Chia mảng thành hai mảng con
+        return countPositiveValues(arr, start, mid) + countPositiveValues(arr, mid + 1, end); 
+    }
+}
+
+int main() {
+    float arr[] = {1.5, -3.7, 4.2, 0.8, 2.9, 6.1, -5.4, 3.0, 9.3 ,-2.7};
+    int n = 10 ;
+    int count = countPositiveValues(arr, 0, n - 1);
+    cout << "So luong gia tri duong trong mang la: " << count << endl;
+    return 0;
+}
