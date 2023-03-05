@@ -1,0 +1,25 @@
+// Cho mảng 1 chiều các số nguyên. Viết hàm tính tổng các số chẵn trong mảng bằng phương 
+
+#include <iostream>
+
+using namespace std;
+
+int sumEven (int arr[], int n){
+if (n == 0) { 
+        return 0; 
+    } else {
+        int sum = sumEven (arr + 1, n - 1);
+        if (arr[0] % 2 == 0) {
+            sum += arr[0]; 
+        }
+        return sum;
+    }
+}
+
+int main(){
+    int n = 10;
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int sum = sumEven(arr, n);
+    cout << "Tong cac so chan trong mang la: " << sum << endl; // Kết quả: 30
+    return 0;
+}
