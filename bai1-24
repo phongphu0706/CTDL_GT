@@ -1,0 +1,55 @@
+//Hãy khai báo kiểu dữ liệu để biểu diễn thông tin của một hộp sữa (HOPSUA). Biết rằng một hộp sữa gồm các thành phần sau:
+//Nhãn hiệu: chuỗi tối đa 20 ký tự
+//Trọng lượng: kiểu số thực
+//Hạn sử dụng: Kiểu dữ liệu Ngày (NGAY)
+//Sau đó viết hàm nhập, xuất cho kiểu dữ liệu này
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct HOPSUA {
+    string nhanHieu;
+    float trongLuong;
+    NGAY hanSuDung;
+};
+
+struct NGAY {
+    int ngay;
+    int thang;
+    int nam;
+};
+
+// Hàm nhập thông tin một hộp sữa
+void nhapHopSua(HOPSUA &hopSua) {
+    cout << "Nhap nhan hieu: ";
+    getline(cin, hopSua.nhanHieu);
+    cout << "Nhap trong luong: ";
+    cin >> hopSua.trongLuong;
+    cout << "Nhap han su dung:\n";
+    cout << "Ngay: ";
+    cin >> hopSua.hanSuDung.ngay;
+    cout << "Thang: ";
+    cin >> hopSua.hanSuDung.thang;
+    cout << "Nam: ";
+    cin >> hopSua.hanSuDung.nam;
+    cin.ignore(); // Loại bỏ ký tự '\n' trong bộ đệm đầu vào
+}
+
+// Hàm xuất thông tin một hộp sữa
+void xuatHopSua(HOPSUA hopSua) {
+    cout << "Nhan hieu: " << hopSua.nhanHieu << endl;
+    cout << "Trong luong: " << hopSua.trongLuong << endl;
+    cout << "Han su dung: " << hopSua.hanSuDung.ngay << "/" 
+         << hopSua.hanSuDung.thang << "/" << hopSua.hanSuDung.nam << endl;
+}
+
+int main() {
+    HOPSUA hopSua;
+
+    nhapHopSua(hopSua);
+    xuatHopSua(hopSua);
+
+    return 0;
+}
