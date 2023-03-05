@@ -1,0 +1,32 @@
+//Viết hàm đệ quy tính tổng của biểu thức sau đây: S(x, n) = x + x^2/2! + x^3/3! + … + x^n/n!
+
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+
+double S(double x, int n) {
+    if (n == 0) {
+        return 1.0;
+    }
+    else {
+        return S(x, n - 1) + pow(x, n) / tgamma(n + 1);
+    }
+}
+
+int main() {
+    double x;
+    int n;
+
+    cout << "Nhap x: ";
+    cin >> x;
+
+    cout << "Nhap n: ";
+    cin >> n;
+
+    double sum = S(x, n);
+
+    cout << "Tong bieu thuc S(x, n) = x + x^2/2! + x^3/3! + … + x^n/n! la :" << sum << endl;
+    cout << "voi n = " << n << " va x = " << x ;
+    return 0;
+}
